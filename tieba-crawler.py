@@ -129,8 +129,11 @@ class BDTB:
     
     def setFileTitle(self,title):
         if title is not None:
+            #transferring title format
+            title = re.sub(r'[/\\]', '·', title)
+            print(title)
             #标题不为None，成功获取标题
-            self.file = open(str(1)+'.txt','a+',encoding='utf-8')
+            self.file = open(title+'.txt','a+',encoding='utf-8')
         else:
             self.file = open(self.dafaultTitle+'.txt','a+',encoding='utf-8')
             
